@@ -20,7 +20,8 @@ SvnPub.prototype.commit = function(commitOptions) {
   commitOptions = new domain.CommitOptions(commitOptions);
   var svn = this.svn;
 
-  return clone(svn, this.options.url)
+  return makeTree(this.options.tmpDir)
+    .then(clone.bind(null, svn, this.options.url))
     .then(function() {
       if (commitOptions.deleteFiles) {
         return;
@@ -32,6 +33,10 @@ SvnPub.prototype.commit = function(commitOptions) {
     .then(commit.bind(null, svn, commitOptions.message));
 };
 
+
+function makeTree(dir) {
+  return fs.makeTree(dir);
+}
 
 function clone(svn, url) {
   return svn.checkout(url);
