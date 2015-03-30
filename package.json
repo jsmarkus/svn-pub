@@ -1,13 +1,13 @@
 {
   "name": "svn-pub",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "nobody",
+  "license": "WTFPL",
   "dependencies": {
     "q": "^1.2.0",
     "q-io": "^1.12.0",
